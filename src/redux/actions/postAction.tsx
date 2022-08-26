@@ -22,7 +22,11 @@ export const createPost =
     try {
       dispatch({ type: ALERT, payload: { loading: true } });
 
-      const res = await postDataAPI('create_post', { content }, auth.token);
+      const res = await postDataAPI(
+        'create_post',
+        { content },
+        auth.access_token
+      );
 
       dispatch({
         type: POST_TYPES.CREATE_POST,
@@ -64,7 +68,7 @@ export const likePost =
     dispatch({ type: POST_TYPES.UPDATE_POST, payload: newPost });
 
     try {
-      await patchDataAPI(`post/${post._id}/like`, null, auth.token);
+      await patchDataAPI(`post/${post._id}/like`, null, auth.access_token);
     } catch (err: any) {
       dispatch({
         type: ALERT,
@@ -83,7 +87,7 @@ export const unLikePost =
     dispatch({ type: POST_TYPES.UPDATE_POST, payload: newPost });
 
     try {
-      await patchDataAPI(`post/${post._id}/unlike`, null, auth.token);
+      await patchDataAPI(`post/${post._id}/unlike`, null, auth.access_token);
     } catch (err: any) {
       dispatch({
         type: ALERT,
@@ -97,7 +101,7 @@ export const getPost =
   async (dispatch: Dispatch<any>) => {
     if (detailPost.every((post: any) => post._id !== id)) {
       try {
-        const res = await getDataAPI(`post/${id}`, auth.token);
+        const res = await getDataAPI(`post/${id}`, auth.access_token);
         dispatch({ type: POST_TYPES.GET_POST, payload: res.data.post });
       } catch (err: any) {
         dispatch({
@@ -114,7 +118,7 @@ export const deletePost =
     dispatch({ type: POST_TYPES.DELETE_POST, payload: post });
 
     try {
-      const res = await deleteDataAPI(`post/${post._id}`, auth.token);
+      const res = await deleteDataAPI(`post/${post._id}`, auth.access_token);
       dispatch({ type: POST_TYPES.DELETE_POST, payload: res.data.message });
     } catch (err: any) {
       dispatch({

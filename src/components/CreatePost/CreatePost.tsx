@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState, FC } from 'react';
+import { useSelector } from 'react-redux';
 import Feeling from '../../icons/Feeling';
 import ImageIcon from '../../icons/ImageIcon';
-import { AppDispatch } from '../../redux/store';
 import Modal from '../../shared/Modal/Modal';
 
-const STATUS = 'STATUS';
-
-const CreatePost = () => {
+const CreatePost: FC = () => {
   const { auth } = useSelector((state: any) => state);
-  const dispatch = useDispatch<AppDispatch>();
   const [isOpen, setIsOpen] = useState(false);
   const handleClickModal = () => setIsOpen(!isOpen);
   return (
@@ -37,12 +33,6 @@ const CreatePost = () => {
               Photo/Video
             </span>
           </button>
-          {/* <button className="flex justify-center items-center w-1/3 focus:outline-none mt-4 py-2">
-            <TagIcon />
-            <span className="text-fGrey text-opacity-80 font-medium ml-2">
-              Tag Friends
-            </span>
-          </button> */}
           <button className="flex justify-center items-center w-1/3 focus:outline-none mt-4 py-2">
             <Feeling />
             <span className="text-fGrey text-opacity-80 font-medium ml-2">

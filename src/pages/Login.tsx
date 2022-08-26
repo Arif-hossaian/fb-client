@@ -17,8 +17,8 @@ const Login: FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (auth.token) navigate('/');
-  }, [auth.token, navigate]);
+    if (auth.access_token) navigate('/');
+  }, [auth.access_token, navigate]);
 
   const handleChangeInput = (e: InputChange) => {
     const { name, value } = e.target;

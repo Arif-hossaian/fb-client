@@ -19,7 +19,7 @@ export const login = (data: IUserLogin) => async (dispatch: Dispatch<any>) => {
     dispatch({
       type: ALERT,
       payload: {
-        error: err.response.data.message,
+        error: err.response.data?.message,
       },
     });
   }
