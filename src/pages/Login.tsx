@@ -36,11 +36,6 @@ const Login: FC = () => {
             Get started today
           </h1>
 
-          <p className="max-w-md mx-auto mt-4 text-center text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-            sunt dolores deleniti inventore quaerat mollitia?
-          </p>
-
           <form
             onSubmit={handleSubmit}
             className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl"
@@ -95,7 +90,8 @@ const Login: FC = () => {
             </button>
 
             <p className="text-sm text-center text-gray-500">
-              email: joeadam@gmail.com && pass: testjoeadam
+              <span className="text-lg text-gray-700">N.B:- </span> email:
+              joeadam@gmail.com && pass: testjoeadam
             </p>
           </form>
         </div>

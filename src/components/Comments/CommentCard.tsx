@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
+import moment from 'moment';
 
 const CommentCard: FC<any> = ({ comment }) => {
   const { auth } = useSelector((state: any) => state);
@@ -12,7 +13,7 @@ const CommentCard: FC<any> = ({ comment }) => {
   }, [comment, auth.user._id]);
   return (
     <div>
-      <div className=" w-44 shadow-fb rounded bg-white p-4">
+      <div className=" w-full shadow-fb rounded bg-white p-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <img
@@ -25,13 +26,14 @@ const CommentCard: FC<any> = ({ comment }) => {
                 {comment.user?.username}
               </span>{' '}
               <br />
+              <span className="text-fGrey text-opacity-50 text-sm">
+                {' '}
+                {moment(comment?.createdAt).fromNow()}
+              </span>
             </div>
           </div>
-          <button className="w-9 h-9 rounded-full bg-fFill flex items-center justify-center focus:outline-none">
-            delete
-          </button>
         </div>
-        <div className="w-full mt-4">{comment?.length}</div>
+        <div className="w-full mt-4">{comment?.content}</div>
       </div>
     </div>
   );

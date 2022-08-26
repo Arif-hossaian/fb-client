@@ -75,25 +75,25 @@ const PostCard: FC<any> = ({ post }) => {
         <div>{post.comments.length} comments</div>
       </div>
       <div className="border border-fGray border-opacity-10 mt-4" />
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center mt-4 px-6">
         <LikeButton
           isLike={isLike}
           handleLike={handleLike}
           handleUnLike={handleUnLike}
         />
         <button className="w-1/2 flex items-center justify-center focus:outline-none">
-          {/* <CommentButton /> */}
           <span className="ml-1">Comment</span>
         </button>
       </div>
       <div className="border border-fGray border-opacity-10 mt-4" />
+      <Comments post={post} />
       <div className="flex items-center space-x-2 mt-4">
         <img
           src={auth.user?.profile_picture}
           alt="img"
           className="h-10 w-10 rounded-full"
         />
-        {/* <Comments post={post} /> */}
+
         <CommentInput post={post} />
       </div>
     </div>
