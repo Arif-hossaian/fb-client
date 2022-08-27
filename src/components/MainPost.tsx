@@ -1,12 +1,9 @@
-import { FC, Key } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import MoreIcon from '../icons/MoreIcon';
-import { AppDispatch } from '../redux/store';
+import { FC } from 'react';
+import { useSelector } from 'react-redux';
 import PostCard from '../shared/PostCard/PostCard';
 
 const MainPost: FC = () => {
-  const { homePosts, auth } = useSelector((state: any) => state);
-  const dispatch = useDispatch<AppDispatch>();
+  const { homePosts } = useSelector((state: any) => state);
   return (
     <div>
       {homePosts.posts?.map((post: any, id: any) => (

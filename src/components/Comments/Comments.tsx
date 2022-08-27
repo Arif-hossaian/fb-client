@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, useEffect, useState } from 'react';
 import CommentCard from './CommentCard';
 
@@ -13,9 +14,11 @@ const Comments: FC<any> = ({ post }) => {
   }, [post.comments, next]);
   return (
     <div className="w-full space-y-5">
-      {showComments.map((comment: { _id: React.Key | null | undefined }) => (
-        <CommentCard key={comment._id} comment={comment} post={post} />
-      ))}
+      {showComments.map(
+        (comment: { _id: React.Key | null | undefined }, id) => (
+          <CommentCard key={id} comment={comment} post={post} />
+        )
+      )}
     </div>
   );
 };
